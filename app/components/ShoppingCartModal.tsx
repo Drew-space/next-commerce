@@ -22,17 +22,33 @@ export default function ShoppingCartModal() {
     redirectToCheckout,
   } = useShoppingCart();
 
+  // async function handleCheckoutClick(event: any) {
+  //   event.preventDefault();
+  //   try {
+  //     const result = await redirectToCheckout();
+  //     if (result?.error) {
+  //       console.log("result");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
     try {
+      // Note: redirectToCheckout() will now look at the items
+      // in your cart and use the price_ids you provided.
       const result = await redirectToCheckout();
+
       if (result?.error) {
-        console.log("result");
+        console.error("Stripe Error:", result.error.message);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Runtime Error:", error);
     }
   }
+
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent className="sm:max-w-lg w-[90vw] px-6">

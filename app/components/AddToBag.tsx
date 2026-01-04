@@ -29,6 +29,8 @@ const AddToBag = ({
     currency: currency,
     image: urlFor(image).url(),
     price_id: price_id,
+    sku: price_id, // Add this
+    id: price_id,
   };
 
   return (

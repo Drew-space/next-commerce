@@ -29,7 +29,8 @@ import { CartProvider as USCProvider } from "use-shopping-cart";
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <USCProvider
-      mode="checkout-session"
+      mode="payment" // Change this from "checkout-session"
+      cartMode="client-only" // Add this line
       stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string}
       currency="USD"
       successUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/success`}
