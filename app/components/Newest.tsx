@@ -41,13 +41,15 @@ const Newest = async () => {
           {data.map((product) => (
             <div key={product._id} className="group relative">
               <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                <Image
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full "
-                  width={300}
-                  height={300}
-                />
+                <Link href={`/product/${product.slug}`}>
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full "
+                    width={300}
+                    height={300}
+                  />
+                </Link>
               </div>
               <div className=" mt-4 flex justify-between">
                 <div>
