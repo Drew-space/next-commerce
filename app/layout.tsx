@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Poppins, Geist_Mono, Geist } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components";
-import CartProvider from "./components/Providers";
+// import CartProvider from "./components/Providers";
 import ShoppingCartModal from "./components/ShoppingCartModal";
+import { CartProvider } from "./context/cart-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
